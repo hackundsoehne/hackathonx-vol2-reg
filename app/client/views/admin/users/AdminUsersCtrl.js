@@ -398,15 +398,20 @@ angular.module('reg')
               },{
                 name: 'Github',
                 value: user.profile.github
+              },{
+                name: 'Adult?',
+                value: user.profile.adult
+              },{
+                name: 'Open Source OK?',
+                value: user.profile.openSource
+              },{
+                name: 'Data Privacy Accepted?',
+                value: user.profile.dataPrivacy
               },
             ]
           },{
             name: 'Confirmation',
             fields: [
-              {
-                  name: 'Phone Number',
-                  value: user.confirmation.phoneNumber
-              },
               {
                 name: 'Dietary Restrictions',
                 value: user.confirmation.dietaryRestrictions.join(', ')
@@ -416,12 +421,6 @@ angular.module('reg')
               },{
                 name: 'Website',
                 value: user.confirmation.website
-              },{
-                name: 'MLH CoC',
-                value: user.confirmation.mlhCoCAgree
-              },{
-                name: 'MLH Information Usage',
-                value: user.confirmation.mlhShareAgree
               }
             ]
           },

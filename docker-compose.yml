@@ -22,7 +22,7 @@ services:
      - EMAIL_USER=
      - EMAIL_PASS=
      - EMAIL_PORT=
-     - EMAIL_HEADER_IMAGE=/assets/images/header.png
+     - EMAIL_HEADER_IMAGE=/assets/images/header.svg
     depends_on:
      - db
     volumes_from:

@@ -10,14 +10,14 @@ TODO:
 Waitlist text
 
 Hey there,
-we have received your application for the Hacktival 2020!
+we have received your application for the hackathon x!
 You will receive an email in the coming weeks informing you whether you have been accepted or not.
 
 =============================================================================================
 
 Acceptance text
 
-Yay! You've been accepted for the Hacktival 2020! Please confirm your attendance by clicking the button below and filling out the remaining details. We're looking forward to meeting you here in Karlsruhe. 
+Yay! You've been accepted for the hackathon x! Please confirm your attendance by clicking the button below and filling out the remaining details. We're looking forward to meeting you here in Karlsruhe. 
 
 
 =============================================================================================

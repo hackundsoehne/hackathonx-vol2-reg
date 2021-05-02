@@ -38,7 +38,7 @@ ENV EMAIL_USER = foo@bar.com
 
 ENV EMAIL_ADDRESS = foo@bar.com
 
-ENV HACKATHON_NAME = Hacktival
+ENV HACKATHON_NAME = hackathon x
 
 ENV TWITTER_HANDLE = @hackundsoehne
 

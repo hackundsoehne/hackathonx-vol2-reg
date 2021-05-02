@@ -18,12 +18,12 @@
             "description": "Credentials for the admin user created at app initialization",
             "value": "vader@hackundsoehne.de"
         },
-        "ADMIN_PASS": "Hacktival2020!",
+        "ADMIN_PASS": "CHANGEME",
         "EMAIL_ADDRESS": {
             "description": "The email address that is included in the 'email us' link at the bottom of emails.",
             "value": "application@hackundsoehne.de"
         },
-        "HACKATHON_NAME": "Hacktival",
+        "HACKATHON_NAME": "hackathon x",
         "TWITTER_HANDLE": {
             "description": "Everything after https://twitter.com/",
             "value": "hackundsoehne"

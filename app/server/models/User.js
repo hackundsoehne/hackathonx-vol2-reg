@@ -24,6 +24,12 @@ var profile = {
     default: false,
   },
 
+  openSource: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
+
   dataPrivacy: {
     type: Boolean,
     required: true,
@@ -108,8 +114,6 @@ var confirmation = {
   },
   // wantsHardware: Boolean,
   // hardware: String,
-  phoneNumber: String,
-
   twitter: String,
   website: String,
 
@@ -129,15 +133,6 @@ var confirmation = {
 
   signaturePhotoRelease: String,
   signatureCodeOfConduct: String,
-
-  mlhCoCAgree: {
-    type: Boolean,
-    default: false,
-  },
-  mlhShareAgree: {
-    type: Boolean,
-    default: false,
-  },
 };
 
 var status = {
@@ -384,6 +379,7 @@ schema.statics.validateProfile = function(profile, cb){
     &&
     profile.description.length > 0 &&
     profile.adult && 
+    profile.openSource &&
     profile.dataPrivacy &&
     ['M', 'F', 'O', 'N'].indexOf(profile.gender) > -1
     ));

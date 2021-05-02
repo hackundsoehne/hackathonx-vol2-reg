@@ -64,10 +64,10 @@ On the Settings tab, admins can easily control their event application timeline 
 ### Requirements
 | Requirement                                 | Version |
 | ------------------------------------------- | ------- |
-| [Node.js](http://nodejs.org)                | `10.13+`  |
+| [Node.js](http://nodejs.org)                | `10.13+`, `16+` seems incompatible  |
 | [MongoDB](www.mongodb.com/) | `4.0+`  |
 
-Run the following commands to check the current installed versions:
+Run the following command to check the currently installed versions:
 
 ```bash
 node -v
@@ -76,6 +76,8 @@ mongo --version
 How to upgrade to latest releases:
 - Node.js: https://nodejs.org/en/download/
 - MongoDB: https://docs.mongodb.com/manual/administration/install-community/
+
+For node, I recommend using `nvm`. Then you can simply run `nvm use` in this root directory, which will set the correct node version for you.
 
 ### Deploying locally
 Getting a local instance of Quill up and running takes less than 5 minutes! Start by setting up the database. Ideally, you should run MongoDB as a daemon with a secure configuration (with most linux distributions, you should be able to install it with your package manager, and it'll be set up as a daemon). Although not recommended for production, when running locally for development, you could do it like this

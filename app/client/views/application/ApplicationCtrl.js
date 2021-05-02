@@ -193,6 +193,24 @@ angular.module('reg')
                   prompt: 'You must be an adult.'
                 }
               ]
+            },
+            opensource: {
+              identifier: 'opensource',
+              rules: [
+                {
+                  type: 'checked',
+                  prompt: 'Please agree to the open source terms.'
+                }
+              ]
+            },
+            dataprivacy: {
+              identifier: 'dataprivacy',
+              rules: [
+                {
+                  type: 'checked',
+                  prompt: 'Please agree to the data privacy policy.'
+                }
+              ]
             }
           }
         });
