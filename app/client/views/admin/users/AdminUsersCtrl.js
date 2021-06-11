@@ -423,28 +423,17 @@ angular.module('reg')
                 value: user.profile.github
               },{
                 name: 'Adult?',
-                value: user.profile.adult
+                value: user.profile.adult,
+                type: "boolean"
               },{
                 name: 'Open Source OK?',
-                value: user.profile.openSource
+                value: user.profile.openSource,
+                type: "boolean"
               },{
                 name: 'Data Privacy Accepted?',
-                value: user.profile.dataPrivacy
+                value: user.profile.dataPrivacy,
+                type: "boolean"
               },
-            ]
-          },{
-            name: 'Confirmation',
-            fields: [
-              {
-                name: 'Dietary Restrictions',
-                value: user.confirmation.dietaryRestrictions.join(', ')
-              },{
-                name: 'Shirt Size',
-                value: user.confirmation.shirtSize
-              },{
-                name: 'Website',
-                value: user.confirmation.website
-              }
             ]
           },
            {
@@ -452,19 +441,15 @@ angular.module('reg')
              fields: [
                {
                  name: 'Address',
+                 type: "multiline",
                  value: user.confirmation.address ? [
+                   user.confirmation.address.name,
                    user.confirmation.address.line1,
                    user.confirmation.address.line2,
-                   user.confirmation.address.city,
-                   ',',
+                   user.confirmation.address.zip + " " + user.confirmation.address.city,
                    user.confirmation.address.state,
-                   user.confirmation.address.zip,
-                   ',',
                    user.confirmation.address.country,
-                 ].join(' ') : ''
-               },{
-                 name: 'Additional Notes',
-                 value: user.confirmation.notes
+                 ] : []
                }
              ]
            },
@@ -473,7 +458,7 @@ angular.module('reg')
             fields: [
               {
                 name: 'Additional Notes',
-                value: user.confirmation.notes
+                value: user.confirmation.notes,
               }
             ]
           }

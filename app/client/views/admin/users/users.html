@@ -58,7 +58,7 @@
 
             <h3> {{section.title}} </h3>
 
-            <p ng-repeat="field in section.fields">
+            <div ng-repeat="field in section.fields">
               <strong> {{field.name}}: </strong>
 
               <span ng-show="field.type === 'boolean'">
@@ -69,7 +69,14 @@
               <span ng-if="field.type == null">
                 {{field.value}}
               </span>
-            </p>
+
+              <p ng-if="field.type === 'multiline'">
+                <span ng-repeat="val in field.value track by $index">
+                  {{val}} <br/>
+                </span>
+              </p>
+
+            </div>
           </div>
         </div>
 
