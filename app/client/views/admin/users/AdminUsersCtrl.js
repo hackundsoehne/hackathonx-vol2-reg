@@ -424,34 +424,27 @@ angular.module('reg')
               }
             ]
           },
-          // {
-          //   name: 'Travel',
-          //   fields: [
-          //     {
-          //       name: 'Needs Reimbursement',
-          //       value: user.confirmation.needsReimbursement,
-          //       type: 'boolean'
-          //     },{
-          //       name: 'Received Reimbursement',
-          //       value: user.confirmation.needsReimbursement && user.status.reimbursementGiven
-          //     },{
-          //       name: 'Address',
-          //       value: user.confirmation.address ? [
-          //         user.confirmation.address.line1,
-          //         user.confirmation.address.line2,
-          //         user.confirmation.address.city,
-          //         ',',
-          //         user.confirmation.address.state,
-          //         user.confirmation.address.zip,
-          //         ',',
-          //         user.confirmation.address.country,
-          //       ].join(' ') : ''
-          //     },{
-          //       name: 'Additional Notes',
-          //       value: user.confirmation.notes
-          //     }
-          //   ]
-          // },
+           {
+             name: 'Survival Kit',
+             fields: [
+               {
+                 name: 'Address',
+                 value: user.confirmation.address ? [
+                   user.confirmation.address.line1,
+                   user.confirmation.address.line2,
+                   user.confirmation.address.city,
+                   ',',
+                   user.confirmation.address.state,
+                   user.confirmation.address.zip,
+                   ',',
+                   user.confirmation.address.country,
+                 ].join(' ') : ''
+               },{
+                 name: 'Additional Notes',
+                 value: user.confirmation.notes
+               }
+             ]
+           },
           {
             name: 'Other',
             fields: [
