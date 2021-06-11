@@ -49,6 +49,17 @@ angular.module('reg')
           });
       });
 
+      function traverse(o,func) {
+          // https://stackoverflow.com/questions/722668/traverse-all-the-nodes-of-a-json-object-tree-with-javascript
+          for (var i in o) {
+              func.apply(this,[i,o[i]]);
+              if (o[i] !== null && typeof(o[i])=="object") {
+                  //going one step down in the object tree!!
+                  traverse(o[i],func);
+              }
+          }
+      }
+
       /**
        * Opens a new window with a line-break seperated list of users with 
        *  name, email, verified, submitted, admitted, confirmed
@@ -58,11 +69,23 @@ angular.module('reg')
         UserService.getAllUsers().then(response => {
           users = response.data;
 
-          file = "name,email,verified,submitted,admitted,confirmed\n";
+          file="";
+          titleInserted = false;
 
           for(user of users) {
             if (user.verified || true)
-              file += user.profile.name + ',' + user.email + ',' + user.verified +',' + user.status.completedProfile + ',' + user.status.admitted + ',' + user.status.confirmed + '\n';
+              keys = ["00_name", "01_email", "02_admitted", "03_confirmed"];
+              vals = [user.profile.name, user.email, user.status.admitted, user.status.confirmed];
+              function addToList(key, value) {
+                keys.push(key);
+                vals.push(value);
+              }
+              traverse(user, addToList);
+              if(!titleInserted) {
+                file += keys.join(',') + '\n'
+                titleInserted = true;
+              }
+              file += vals.join(',').replace(/(\r\n|\n|\r)/gm, ' ') + '\n'
           }
 
           var newBlob = new Blob([file], {type : "text/csv"});
