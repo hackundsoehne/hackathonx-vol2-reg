@@ -105,33 +105,33 @@ var confirmation = {
   },
 
 
-  dietaryRestrictions: [String],
-  shirtSize: {
-    type: String,
-    enum: {
-      values: 'XS S M L XL'.split(' ')
-    }
-  },
+  //dietaryRestrictions: [String],
+  //shirtSize: {
+    //type: String,
+    //enum: {
+      //values: 'XS S M L XL'.split(' ')
+    //}
+  //},
   // wantsHardware: Boolean,
   // hardware: String,
-  twitter: String,
-  website: String,
+  //twitter: String,
+  //website: String,
 
-  // needsReimbursement: Boolean,
-  // address: {
-  //   name: String,
-  //   line1: String,
-  //   line2: String,
-  //   city: String,
-  //   state: String,
-  //   zip: String,
-  //   country: String
-  // },
+  //needsReimbursement: Boolean,
+  address: {
+    name: String,
+    line1: String,
+    line2: String,
+    city: String,
+    state: String,
+    zip: String,
+    country: String
+  },
   // receipt: String,
 
   notes: String,
 
-  signaturePhotoRelease: String,
+  //signaturePhotoRelease: String,
   signatureCodeOfConduct: String,
 };
 
