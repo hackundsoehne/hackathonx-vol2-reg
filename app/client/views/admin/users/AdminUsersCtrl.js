@@ -85,7 +85,10 @@ angular.module('reg')
                 file += keys.join(',') + '\n'
                 titleInserted = true;
               }
-              file += vals.join(',').replace(/(\r\n|\n|\r)/gm, ' ') + '\n'
+
+              file += vals.map(function(val) {
+                return '"' + val + '"'
+              }).join(',').replace(/(\r\n|\n|\r)/gm, ' ') + '\n'
           }
 
           var newBlob = new Blob([file], {type : "text/csv"});
