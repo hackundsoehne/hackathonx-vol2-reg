@@ -252,7 +252,7 @@ module.exports = function(router) {
     // Get user profile based on token
     UserController.getByToken(token, function(err, user){
 
-      if (err || !user) {
+      if (err || !user || !req.body.name || !req.body.file) {
         return res.status(500).send(err);
       }
 
