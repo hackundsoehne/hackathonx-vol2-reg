@@ -111,9 +111,9 @@ angular.module('reg')
               valStrs = [];
               for(let i = 0; i < keys.length; i++) {
                 key = keys[i];
-                valStrs.push('"' + valDic[key] + '"');
+                valStrs.push('"' + valDic[key].replace(/"/g, "'") + '"');
               }
-              file += valStrs.join(',').replace(/(\r\n|\n|\r)/gm, ' ').replace(/"/g, "'") + '\n';
+              file += valStrs.join(',').replace(/(\r\n|\n|\r)/gm, ' ') + '\n';
             }
           }
 
