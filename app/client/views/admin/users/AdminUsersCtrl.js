@@ -49,13 +49,21 @@ angular.module('reg')
           });
       });
 
-      function traverse(o,func) {
+      function traverse(o,func,totalKey) {
           // https://stackoverflow.com/questions/722668/traverse-all-the-nodes-of-a-json-object-tree-with-javascript
           for (var i in o) {
-              func.apply(this,[i,o[i]]);
+              if(totalKey == "") {
+                totalKeyNew = i;
+              }
+              else {
+                totalKeyNew = totalKey +  "." + i;
+              }
+              if(typeof(o[i]) != "object") {
+                  func.apply(this,[i,totalKeyNew,o[i]]);
+              }
               if (o[i] !== null && typeof(o[i])=="object") {
                   //going one step down in the object tree!!
-                  traverse(o[i],func);
+                  traverse(o[i],func,totalKeyNew);
               }
           }
       }
@@ -72,23 +80,41 @@ angular.module('reg')
           file="";
           titleInserted = false;
 
+          keys = []
           for(user of users) {
-            if (user.verified || true)
-              keys = ["00_name", "01_email", "02_admitted", "03_confirmed"];
-              vals = [user.profile.name, user.email, user.status.admitted, user.status.confirmed];
-              function addToList(key, value) {
+            function getKeys(key, totalKey, value) {
+              if(totalKey == "status.name") {
+                key = "statusName";
+              }
+              if(!keys.includes(key)) {
                 keys.push(key);
-                vals.push(value);
               }
-              traverse(user, addToList);
-              if(!titleInserted) {
-                file += keys.join(',') + '\n'
-                titleInserted = true;
-              }
+            }
+            traverse(user, getKeys, "");
+          }
+          file += keys.join(',') + '\n'
 
-              file += vals.map(function(val) {
-                return '"' + val + '"'
-              }).join(',').replace(/(\r\n|\n|\r)/gm, ' ') + '\n'
+          for(user of users) {
+            if (user.verified) {
+              valDic = {};
+              for(key of keys) {
+                valDic[key] = "";
+              }
+              function addToDic(key, totalKey, value) {
+                if(totalKey == "status.name") {
+                  key = "statusName";
+                }
+                valDic[key] = value;
+              }
+              traverse(user, addToDic, "");
+
+              valStrs = [];
+              for(let i = 0; i < keys.length; i++) {
+                key = keys[i];
+                valStrs.push('"' + valDic[key] + '"');
+              }
+              file += valStrs.join(',').replace(/(\r\n|\n|\r)/gm, ' ') + '\n';
+            }
           }
 
           var newBlob = new Blob([file], {type : "text/csv"});
